@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Пример</title>
+  </head>
+  <body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+
+    <script>
+      // Получаем ссылки на пустые блоки
+      let div1 = document.getElementById("div1");
+      let div2 = document.getElementById("div2");
+
+      // Выводим все дочерние узлы элемента body в div1
+      div1.innerHTML =
+        "Дочерние узлы элемента body: <br>" +
+        JSON.stringify(
+          Array.from(document.body.childNodes).map((node) => node.nodeName)
+        );
+
+      // Выводим все элементы документа в div2
+      div2.innerHTML =
+        "Все элементы документа: <br>" +
+        JSON.stringify(
+          Array.from(document.querySelectorAll("*")).map(
+            (node) => node.nodeName
+          )
+        );
+    </script>
+  </body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример</title>
+    <style>
+        .odd {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <let id="list"></div>
+    <button onclick="createList()">Создать список</button>
+    <button onclick="addFirst()">Добавить в начало</button>
+    <button onclick="addLast()">Добавить в конец</button>
+    <button onclick="changeColor()">Изменить цвет</button>
+
+    <script>
+        function createList() {
+           let list = document.getElementById('list');
+            let ol = document.createElement('ol');
+            ol.id = 'myList';
+            list.appendChild(ol);
+        }
+
+        function addFirst() {
+            let ol = document.getElementById('myList');
+            let li = document.createElement('li');
+            li.textContent = 'Новый элемент';
+            ol.insertBefore(li, ol.firstChild);
+        }
+
+        function addLast() {
+            let ol = document.getElementById('myList');
+            let li = document.createElement('li');
+            li.textContent = 'Новый элемент';
+            ol.appendChild(li);
+        }
+
+        function changeColor() {
+            let ol = document.getElementById('myList');
+            let items = ol.getElementsByTagName('li');
+            for (var i = 0; i < items.length; i++) {
+                if (i % 2 == 0) {
+                    items[i].classList.toggle('odd');
+                }
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример</title>
+</head>
+<body>
+    <div id="myDiv"></div>
+
+    <script>
+        // Первый способ: document.getElementById
+        var elementById = document.getElementById('myDiv');
+
+        // Второй способ: использование иерархической структуры DOM
+        let parentDiv = document.body;
+        let children = Array.from(parentDiv.childNodes).filter(node => node.nodeName === 'DIV');
+        let hierarchicalMethod = children[0];
+
+        // Третий способ: использование querySelector
+        let queryMethod = document.querySelector('#myDiv');
+
+        // Проверяем равенство
+        let isEqual = (elementById === hierarchicalMethod) && (hierarchicalMethod === queryMethod);
+
+        // Выводим результат на страницу
+        document.body.innerHTML += 'Переменные равны: ' + isEqual;
+    </script>
+</body>
+</html> -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменение изображений</title>
+</head>
+<body>
+    <figure id="imageContainer">
+        <img id="image" src="img/1645922189_9-vsegda-pomnim-com-p-polyarnoe-siyanie-foto-10.jpg" alt="Изображение 1">
+        <figcaption>Изображение 1</figcaption>
+    </figure>
+
+    <script>
+        let images = ['img/1645922189_9-vsegda-pomnim-com-p-polyarnoe-siyanie-foto-10.jpg', 'img/7716.jpg', 'img/79562bed59f005014d5f2968ff9d3cb1.jpeg', 'img/1689363717_vsegda-pomnim-com-p-polyarnoe-siyanie-samie-krasivie-foto-47.jpg', 'img/efcf9ddc65653b5580791b847f5dbb8d.jpeg'];
+        let captions = ['Изображение 1', 'Изображение 2', 'Изображение 3', 'Изображение 4', 'Изображение 5'];
+        let currentIndex = 0;
+
+        let image = document.getElementById('image');
+        let figcaption = document.querySelector('figcaption');
+
+        image.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            image.src = images[currentIndex];
+            figcaption.textContent = captions[currentIndex];
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайдер</title>
+    <style>
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <let class="slider-container">
+        <img class="slide" src="img/1645922189_9-vsegda-pomnim-com-p-polyarnoe-siyanie-foto-10.jpg" alt="Изображение 1">
+        <img class="slide" src="img/7716.jpg" alt="Изображение 2">
+        <img class="slide" src="img/79562bed59f005014d5f2968ff9d3cb1.jpeg" alt="Изображение 3">
+        <img class="slide" src="img/1689363717_vsegda-pomnim-com-p-polyarnoe-siyanie-samie-krasivie-foto-47.jpg" alt="Изображение 4">
+        <img class="slide" src="img/efcf9ddc65653b5580791b847f5dbb8d.jpeg" alt="Изображение 5">
+    </div>
+
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides[currentSlide].style.display = "none";
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].style.display = "block";
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        setInterval(nextSlide, 3000); // Плавная смена изображений каждые 3 секунды
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Установка адреса веб-адреса</title>
+</head>
+<body>
+    <a id="myLink" href="#" target="_blank">Ссылка</a>
+    <br>
+    <button id="button1">Google</button>
+    <button id="button2">Yandex</button>
+    <button id="button3">Bing</button>
+
+    <script>
+        let link = document.getElementById('myLink');
+        let button1 = document.getElementById('button1');
+        let button2 = document.getElementById('button2');
+        let button3 = document.getElementById('button3');
+
+        button1.addEventListener('click', function() {
+            link.setAttribute('href', 'https://www.google.com');
+        });
+
+        button2.addEventListener('click', function() {
+            link.href = 'https://www.yandex.ru';
+        });
+
+        button3.onclick = function() {
+            link.href = 'https://www.bing.com';
+        };
+    </script>
+</body>
+</html> -->
+
